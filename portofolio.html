@@ -38,19 +38,19 @@
             overflow-x: hidden;
         }
         
-       /* ===== NAVBAR STYLES ===== */
+/* ===== NAVBAR STYLES ===== */
 .navbar-custom {
-    background: rgba(13, 96, 147, 0.95);
+    background: rgba(252, 252, 252, 0.95);
     backdrop-filter: blur(10px);
     transition: all 0.4s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 8px 0; /* dikasih sedikit padding biar gak gepeng */
+    padding: 8px 0;
 }
 
 .navbar-custom.scrolled {
-    background: var(--primary-blue);
+    background: var(--white);
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    padding: 5px 0; /* sedikit lebih kecil pas discroll */
+    padding: 5px 0;
 }
 
 /* Container rapih */
@@ -67,13 +67,13 @@
     margin: 0;
     font-size: 28px;
     font-weight: 700;
-    color: var(--white) !important;
+    color: var(--primary-blue) !important;
     letter-spacing: 1px;
     transition: all 0.3s ease;
 }
 
 .navbar-brand img {
-    height: 60px; /* sedikit lebih tinggi biar proporsional */
+    height: 60px;
     width: auto;
     display: block;
 }
@@ -85,13 +85,13 @@
 
 /* ===== NAV LINKS ===== */
 .nav-link {
-    color: var(--white) !important;
+    color: var(--primary-blue) !important;
     font-weight: 500;
     margin: 0 15px;
     position: relative;
     transition: all 0.3s ease;
-    padding: 8px 0; /* tambahin padding biar sejajar sama logo */
-    line-height: 1.5; /* jangan fix height, biar fleksibel */
+    padding: 8px 0;
+    line-height: 1.5;
 }
 
 .nav-link::after {
@@ -115,11 +115,16 @@
     color: var(--secondary-tosca) !important;
 }
 
+.nav-link.active {
+    color: var(--secondary-tosca) !important;
+    font-weight: 600;
+}
+
 /* Navbar toggler custom */
 .navbar-toggler {
     border: none;
     outline: none;
-    background-color: var(--white);
+    background-color: var(--primary-blue);
     border-radius: 6px;
     transition: all 0.3s ease;
 }
@@ -465,7 +470,6 @@
     </style>
 </head>
 <body>
-
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
     <div class="container">
@@ -480,8 +484,8 @@
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
                 <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
-                <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link active" href="portofolio.html">Portofolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
             </ul>
         </div>

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growesia - Platform Website UMKM Indonesia</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    
+
     <!-- Google Fonts - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary-blue: #0d6093;
@@ -24,109 +26,118 @@
             --white: #fcfcfc;
             --black: #000000;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--black);
             background-color: var(--white);
             overflow-x: hidden;
         }
-        
-/* ===== NAVBAR STYLES ===== */
-.navbar-custom {
-    background: rgba(13, 96, 147, 0.95);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 8px 0; /* dikasih sedikit padding biar gak gepeng */
-}
 
-.navbar-custom.scrolled {
-    background: var(--primary-blue);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    padding: 5px 0; /* sedikit lebih kecil pas discroll */
-}
+        /* ===== NAVBAR STYLES ===== */
+        .navbar-custom {
+            background: rgba(252, 252, 252, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 8px 0;
+        }
 
-/* Container rapih */
-.navbar .container {
-    padding-top: 0;
-    padding-bottom: 0;
-}
+        .navbar-custom.scrolled {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 5px 0;
+        }
 
-/* ===== BRAND (LOGO) ===== */
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--white) !important;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
+        /* Container rapih */
+        .navbar .container {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
-.navbar-brand img {
-    height: 60px; /* sedikit lebih tinggi biar proporsional */
-    width: auto;
-    display: block;
-}
+        /* ===== BRAND (LOGO) ===== */
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue) !important;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
 
-.navbar-brand:hover {
-    transform: scale(1.05);
-    color: var(--secondary-tosca) !important;
-}
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
 
-/* ===== NAV LINKS ===== */
-.nav-link {
-    color: var(--white) !important;
-    font-weight: 500;
-    margin: 0 15px;
-    position: relative;
-    transition: all 0.3s ease;
-    padding: 8px 0; /* tambahin padding biar sejajar sama logo */
-    line-height: 1.5; /* jangan fix height, biar fleksibel */
-}
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: var(--secondary-tosca) !important;
+        }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 4px;
-    left: 50%;
-    background-color: var(--secondary-tosca);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
+        /* ===== NAV LINKS ===== */
+        .nav-link {
+            color: var(--primary-blue) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            line-height: 1.5;
+        }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 4px;
+            left: 50%;
+            background-color: var(--secondary-tosca);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
 
-.nav-link:hover {
-    color: var(--secondary-tosca) !important;
-}
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
 
-/* Navbar toggler custom */
-.navbar-toggler {
-    border: none;
-    outline: none;
-    background-color: var(--white);
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
+        .nav-link:hover {
+            color: var(--secondary-tosca) !important;
+        }
 
-.navbar-toggler:hover {
-    background-color: var(--secondary-tosca);
-}
+        .nav-link.active {
+            color: var(--secondary-tosca) !important;
+            font-weight: 600;
+        }
+
+        /* Navbar toggler custom */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            background-color: var(--primary-blue);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:hover {
+            background-color: var(--secondary-tosca);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
 
         /* ===== HERO SECTION ===== */
         .hero-section {
@@ -137,49 +148,56 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
             width: 500px;
             height: 500px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             top: -200px;
             right: -200px;
             animation: float 6s ease-in-out infinite;
         }
-        
+
         .hero-section::after {
             content: '';
             position: absolute;
             width: 300px;
             height: 300px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             bottom: -100px;
             left: -100px;
             animation: float 8s ease-in-out infinite;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
             color: var(--white);
         }
-        
+
         .hero-title {
             font-size: 56px;
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
         }
-        
+
         .hero-subtitle {
             font-size: 20px;
             font-weight: 400;
@@ -187,19 +205,78 @@
             opacity: 0.95;
             max-width: 600px;
         }
-        
+
         .typewriter {
             color: var(--secondary-tosca);
             border-right: 3px solid var(--secondary-tosca);
             display: inline-block;
             animation: blink 0.7s step-end infinite;
         }
-        
+
+        /* ===== HERO IMAGE STYLES ===== */
+.hero-image-container {
+    text-align: center;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateX(50px);
+    opacity: 0;
+    animation: slideInFromRight 1s ease-out 0.5s forwards, float 6s ease-in-out 1.5s infinite;
+}
+
+/* Animation untuk image masuk dari kanan */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animation float yang sudah ada, diperbaiki untuk image */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .hero-image-container {
+        margin-top: 40px;
+    }
+}
+
         @keyframes blink {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--secondary-tosca); }
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--secondary-tosca);
+            }
         }
-        
+
         .btn-custom {
             padding: 15px 40px;
             font-size: 18px;
@@ -210,36 +287,36 @@
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .btn-primary-custom {
             background-color: var(--secondary-tosca);
             color: var(--white);
         }
-        
+
         .btn-primary-custom:hover {
             background-color: var(--white);
             color: var(--primary-blue);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-outline-custom {
             background-color: transparent;
             color: var(--white);
             border: 2px solid var(--white);
         }
-        
+
         .btn-outline-custom:hover {
             background-color: var(--white);
             color: var(--primary-blue);
             transform: translateY(-3px);
         }
-        
+
         /* ===== SECTION STYLES ===== */
         .section-padding {
             padding: 100px 0;
         }
-        
+
         .section-title {
             font-size: 42px;
             font-weight: 700;
@@ -248,7 +325,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -258,7 +335,7 @@
             bottom: -10px;
             left: 0;
         }
-        
+
         .section-subtitle {
             font-size: 18px;
             color: #666;
@@ -267,66 +344,66 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* ===== ABOUT PREVIEW SECTION ===== */
         .about-preview {
             background-color: var(--white);
         }
-        
+
         .about-image {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-        
+
         .about-image:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
-        
+
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
+
         .about-text h2 {
             font-size: 38px;
             font-weight: 700;
             color: var(--primary-blue);
             margin-bottom: 20px;
         }
-        
+
         .about-text p {
             font-size: 16px;
             line-height: 1.8;
             color: #555;
             margin-bottom: 15px;
         }
-        
+
         /* ===== SERVICES SECTION ===== */
         .services-section {
             background-color: #f8f9fa;
         }
-        
+
         .service-card {
             background-color: var(--white);
             border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
             transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             height: 100%;
             border: 2px solid transparent;
         }
-        
+
         .service-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border-color: var(--secondary-tosca);
         }
-        
+
         .service-icon {
             width: 80px;
             height: 80px;
@@ -340,36 +417,36 @@
             font-size: 36px;
             transition: all 0.3s ease;
         }
-        
+
         .service-card:hover .service-icon {
             background-color: var(--secondary-tosca);
             transform: rotate(360deg);
         }
-        
+
         .service-card h3 {
             font-size: 24px;
             font-weight: 600;
             color: var(--primary-blue);
             margin-bottom: 15px;
         }
-        
+
         .service-card p {
             font-size: 15px;
             color: #666;
             line-height: 1.7;
         }
-        
+
         /* ===== STATISTICS SECTION ===== */
         .statistics-section {
             background-color: var(--primary-blue);
             color: var(--white);
         }
-        
+
         .stat-box {
             text-align: center;
             padding: 30px;
         }
-        
+
         .stat-number {
             font-size: 56px;
             font-weight: 800;
@@ -377,32 +454,32 @@
             margin-bottom: 10px;
             display: block;
         }
-        
+
         .stat-label {
             font-size: 18px;
             font-weight: 500;
             opacity: 0.95;
         }
-        
+
         /* ===== PORTFOLIO SECTION ===== */
         .portfolio-section {
             background-color: var(--white);
         }
-        
+
         .portfolio-card {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             background-color: var(--white);
             height: 100%;
         }
-        
+
         .portfolio-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
-        
+
         .portfolio-image {
             width: 100%;
             height: 250px;
@@ -414,29 +491,29 @@
             color: var(--primary-blue);
             transition: all 0.3s ease;
         }
-        
+
         .portfolio-card:hover .portfolio-image {
             background-color: var(--secondary-tosca);
             color: var(--white);
         }
-        
+
         .portfolio-info {
             padding: 25px;
         }
-        
+
         .portfolio-info h4 {
             font-size: 22px;
             font-weight: 600;
             color: var(--primary-blue);
             margin-bottom: 10px;
         }
-        
+
         .portfolio-info p {
             font-size: 14px;
             color: #666;
             margin-bottom: 15px;
         }
-        
+
         .portfolio-tag {
             display: inline-block;
             padding: 5px 15px;
@@ -447,27 +524,27 @@
             font-weight: 500;
             margin-right: 5px;
         }
-        
+
         /* ===== TESTIMONIAL SECTION ===== */
         .testimonial-section {
             background-color: #f8f9fa;
         }
-        
+
         .testimonial-card {
             background-color: var(--white);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             position: relative;
         }
-        
+
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
-        
+
         .quote-icon {
             font-size: 48px;
             color: var(--secondary-tosca);
@@ -476,7 +553,7 @@
             top: 20px;
             right: 30px;
         }
-        
+
         .testimonial-text {
             font-size: 16px;
             line-height: 1.8;
@@ -484,13 +561,13 @@
             margin-bottom: 25px;
             font-style: italic;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .author-avatar {
             width: 60px;
             height: 60px;
@@ -503,62 +580,62 @@
             font-size: 24px;
             font-weight: 600;
         }
-        
+
         .author-info h5 {
             font-size: 18px;
             font-weight: 600;
             color: var(--primary-blue);
             margin-bottom: 5px;
         }
-        
+
         .author-info p {
             font-size: 14px;
             color: #777;
             margin: 0;
         }
-        
+
         /* ===== CTA SECTION ===== */
         .cta-section {
             background-color: var(--secondary-tosca);
             color: var(--white);
             text-align: center;
         }
-        
+
         .cta-section h2 {
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 20px;
         }
-        
+
         .cta-section p {
             font-size: 20px;
             margin-bottom: 40px;
             opacity: 0.95;
         }
-        
+
         .btn-white-custom {
             background-color: var(--white);
             color: var(--secondary-tosca);
         }
-        
+
         .btn-white-custom:hover {
             background-color: var(--primary-blue);
             color: var(--white);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* ===== NEWSLETTER SECTION ===== */
         .newsletter-section {
             background-color: var(--white);
         }
-        
+
         .newsletter-form {
             max-width: 600px;
             margin: 0 auto;
             position: relative;
         }
-        
+
         .newsletter-input {
             width: 100%;
             padding: 18px 160px 18px 25px;
@@ -568,12 +645,12 @@
             outline: none;
             transition: all 0.3s ease;
         }
-        
+
         .newsletter-input:focus {
             border-color: var(--secondary-tosca);
             box-shadow: 0 5px 20px rgba(51, 185, 188, 0.3);
         }
-        
+
         .newsletter-btn {
             position: absolute;
             right: 5px;
@@ -588,48 +665,48 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .newsletter-btn:hover {
             background-color: var(--secondary-tosca);
         }
-        
+
         /* ===== FOOTER ===== */
         .footer {
             background-color: var(--black);
             color: var(--white);
             padding: 60px 0 30px;
         }
-        
+
         .footer-logo {
             font-size: 32px;
             font-weight: 700;
             color: var(--white);
             margin-bottom: 15px;
         }
-        
+
         .footer-description {
             font-size: 14px;
             opacity: 0.8;
             margin-bottom: 25px;
             line-height: 1.7;
         }
-        
+
         .footer-title {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--secondary-tosca);
         }
-        
+
         .footer-links {
             list-style: none;
             padding: 0;
         }
-        
+
         .footer-links li {
             margin-bottom: 12px;
         }
-        
+
         .footer-links a {
             color: var(--white);
             text-decoration: none;
@@ -637,18 +714,18 @@
             opacity: 0.8;
             transition: all 0.3s ease;
         }
-        
+
         .footer-links a:hover {
             opacity: 1;
             color: var(--secondary-tosca);
             padding-left: 5px;
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-icon {
             width: 45px;
             height: 45px;
@@ -662,57 +739,57 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-icon:hover {
             background-color: var(--secondary-tosca);
             transform: translateY(-5px);
             color: var(--white);
         }
-        
+
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 50px;
             padding-top: 25px;
             text-align: center;
         }
-        
+
         .footer-bottom p {
             font-size: 14px;
             opacity: 0.7;
             margin: 0;
         }
-        
+
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 36px;
             }
-            
+
             .hero-subtitle {
                 font-size: 16px;
             }
-            
+
             .section-title {
                 font-size: 32px;
             }
-            
+
             .section-padding {
                 padding: 60px 0;
             }
-            
+
             .stat-number {
                 font-size: 42px;
             }
-            
+
             .cta-section h2 {
                 font-size: 32px;
             }
-            
+
             .newsletter-input {
                 padding: 15px 20px;
                 margin-bottom: 15px;
             }
-            
+
             .newsletter-btn {
                 position: static;
                 transform: none;
@@ -722,50 +799,53 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- ===== NAVBAR ===== -->
-<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="image/logo.png" alt="Growesia Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
-                <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
-                <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero-section">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7" data-aos="fade-right">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Bangun Website UMKM Bersama <span class="typewriter" id="typewriter">Growesia</span></h1>
-                        <p class="hero-subtitle">Platform digital terpercaya yang membantu UMKM lokal Indonesia memiliki website profesional untuk memperluas jangkauan bisnis dan meningkatkan penjualan online.</p>
-                        <a href="kontak.html" class="btn-custom btn-primary-custom me-3">Mulai Sekarang</a>
-                        <a href="tentang.html" class="btn-custom btn-outline-custom">Pelajari Lebih Lanjut</a>
-                    </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="image/logo.png" alt="Growesia Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <div class="hero-content">
+                    <h1 class="hero-title">Bangun Website UMKM Bersama <span class="typewriter"
+                            id="typewriter">Growesia</span></h1>
+                    <p class="hero-subtitle">Platform digital terpercaya yang membantu UMKM lokal Indonesia memiliki
+                        website profesional untuk memperluas jangkauan bisnis dan meningkatkan penjualan online.</p>
+                    <a href="kontak.html" class="btn-custom btn-primary-custom me-3">Mulai Sekarang</a>
+                    <a href="tentang.html" class="btn-custom btn-outline-custom">Pelajari Lebih Lanjut</a>
                 </div>
-                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-                    <div style="text-align: center; font-size: 200px; color: rgba(255,255,255,0.2);">
-                        <i class="bi bi-laptop"></i>
-                    </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                <div class="hero-image-container">
+                    <img src="image/anggota.jpg" alt="Tim Growesia" class="hero-image">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== ABOUT PREVIEW SECTION ===== -->
     <section class="about-preview section-padding">
@@ -773,7 +853,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                     <div class="about-image">
-                        <div style="width: 100%; height: 400px; background-color: var(--primary-blue); display: flex; align-items: center; justify-content: center; font-size: 120px; color: var(--white);">
+                        <div
+                            style="width: 100%; height: 400px; background-color: var(--primary-blue); display: flex; align-items: center; justify-content: center; font-size: 120px; color: var(--white);">
                             <i class="bi bi-shop-window"></i>
                         </div>
                     </div>
@@ -781,9 +862,14 @@
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="about-text">
                         <h2>Misi Kami Membantu UMKM Indonesia</h2>
-                        <p>Growesia hadir sebagai solusi digital yang memudahkan UMKM lokal Indonesia untuk memiliki website profesional tanpa perlu keahlian teknis yang rumit.</p>
-                        <p>Kami percaya bahwa setiap usaha kecil dan menengah memiliki potensi besar untuk berkembang di era digital. Dengan website yang tepat, UMKM dapat menjangkau lebih banyak pelanggan, meningkatkan kredibilitas, dan mengembangkan bisnis secara signifikan.</p>
-                        <p>Tim kami berdedikasi untuk memberikan layanan terbaik, dari desain website yang menarik hingga optimasi SEO yang membantu bisnis Anda ditemukan oleh lebih banyak calon pelanggan.</p>
+                        <p>Growesia hadir sebagai solusi digital yang memudahkan UMKM lokal Indonesia untuk memiliki
+                            website profesional tanpa perlu keahlian teknis yang rumit.</p>
+                        <p>Kami percaya bahwa setiap usaha kecil dan menengah memiliki potensi besar untuk berkembang di
+                            era digital. Dengan website yang tepat, UMKM dapat menjangkau lebih banyak pelanggan,
+                            meningkatkan kredibilitas, dan mengembangkan bisnis secara signifikan.</p>
+                        <p>Tim kami berdedikasi untuk memberikan layanan terbaik, dari desain website yang menarik
+                            hingga optimasi SEO yang membantu bisnis Anda ditemukan oleh lebih banyak calon pelanggan.
+                        </p>
                         <a href="tentang.html" class="btn-custom btn-primary-custom mt-3">Pelajari Lebih Lanjut</a>
                     </div>
                 </div>
@@ -796,7 +882,8 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title" data-aos="fade-up">Layanan Unggulan</h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Solusi lengkap untuk transformasi digital UMKM Anda</p>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Solusi lengkap untuk transformasi
+                    digital UMKM Anda</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -805,7 +892,8 @@
                             <i class="bi bi-globe"></i>
                         </div>
                         <h3>Website UMKM</h3>
-                        <p>Pembuatan website profesional dan responsif yang dirancang khusus untuk kebutuhan UMKM. Tampilan modern, mudah dikelola, dan optimal di semua perangkat.</p>
+                        <p>Pembuatan website profesional dan responsif yang dirancang khusus untuk kebutuhan UMKM.
+                            Tampilan modern, mudah dikelola, dan optimal di semua perangkat.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -814,7 +902,8 @@
                             <i class="bi bi-palette"></i>
                         </div>
                         <h3>Branding Digital</h3>
-                        <p>Membangun identitas brand yang kuat dengan desain logo, pemilihan warna, dan strategi branding yang tepat untuk meningkatkan recognition bisnis Anda.</p>
+                        <p>Membangun identitas brand yang kuat dengan desain logo, pemilihan warna, dan strategi
+                            branding yang tepat untuk meningkatkan recognition bisnis Anda.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -823,7 +912,8 @@
                             <i class="bi bi-graph-up-arrow"></i>
                         </div>
                         <h3>SEO & Optimasi</h3>
-                        <p>Optimasi mesin pencari agar website UMKM Anda mudah ditemukan di Google. Tingkatkan visibilitas online dan raih lebih banyak pelanggan potensial.</p>
+                        <p>Optimasi mesin pencari agar website UMKM Anda mudah ditemukan di Google. Tingkatkan
+                            visibilitas online dan raih lebih banyak pelanggan potensial.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -832,7 +922,8 @@
                             <i class="bi bi-cart-check"></i>
                         </div>
                         <h3>E-Commerce Solution</h3>
-                        <p>Bangun toko online yang mudah digunakan dengan fitur pembayaran terintegrasi, manajemen produk, dan sistem checkout yang aman.</p>
+                        <p>Bangun toko online yang mudah digunakan dengan fitur pembayaran terintegrasi, manajemen
+                            produk, dan sistem checkout yang aman.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -841,7 +932,8 @@
                             <i class="bi bi-phone"></i>
                         </div>
                         <h3>Mobile Optimization</h3>
-                        <p>Pastikan website UMKM Anda tampil sempurna di semua perangkat mobile. Pengalaman pengguna yang optimal meningkatkan konversi penjualan.</p>
+                        <p>Pastikan website UMKM Anda tampil sempurna di semua perangkat mobile. Pengalaman pengguna
+                            yang optimal meningkatkan konversi penjualan.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -850,7 +942,8 @@
                             <i class="bi bi-headset"></i>
                         </div>
                         <h3>Support & Maintenance</h3>
-                        <p>Dukungan teknis 24/7 dan maintenance berkala untuk memastikan website Anda selalu berjalan dengan optimal dan aman dari gangguan.</p>
+                        <p>Dukungan teknis 24/7 dan maintenance berkala untuk memastikan website Anda selalu berjalan
+                            dengan optimal dan aman dari gangguan.</p>
                     </div>
                 </div>
             </div>
@@ -898,7 +991,8 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title" data-aos="fade-up">Portofolio Kami</h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Beberapa karya website UMKM yang telah kami ciptakan</p>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Beberapa karya website UMKM yang
+                    telah kami ciptakan</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -908,7 +1002,8 @@
                         </div>
                         <div class="portfolio-info">
                             <h4>Kedai Kopi Nusantara</h4>
-                            <p>Website e-commerce untuk kedai kopi lokal dengan sistem pemesanan online dan katalog produk lengkap.</p>
+                            <p>Website e-commerce untuk kedai kopi lokal dengan sistem pemesanan online dan katalog
+                                produk lengkap.</p>
                             <span class="portfolio-tag">E-Commerce</span>
                             <span class="portfolio-tag">F&B</span>
                         </div>
@@ -921,7 +1016,8 @@
                         </div>
                         <div class="portfolio-info">
                             <h4>Batik Klasik Indonesia</h4>
-                            <p>Platform penjualan batik tradisional dengan galeri produk interaktif dan sistem pembayaran terintegrasi.</p>
+                            <p>Platform penjualan batik tradisional dengan galeri produk interaktif dan sistem
+                                pembayaran terintegrasi.</p>
                             <span class="portfolio-tag">Fashion</span>
                             <span class="portfolio-tag">Marketplace</span>
                         </div>
@@ -934,7 +1030,8 @@
                         </div>
                         <div class="portfolio-info">
                             <h4>Jajanan Pasar Modern</h4>
-                            <p>Website company profile dengan katalog jajanan tradisional dan sistem pre-order untuk acara dan catering.</p>
+                            <p>Website company profile dengan katalog jajanan tradisional dan sistem pre-order untuk
+                                acara dan catering.</p>
                             <span class="portfolio-tag">Culinary</span>
                             <span class="portfolio-tag">Catering</span>
                         </div>
@@ -947,7 +1044,8 @@
                         </div>
                         <div class="portfolio-info">
                             <h4>Toko Bunga Segar</h4>
-                            <p>E-commerce website untuk toko bunga dengan fitur custom arrangement dan pengiriman same day.</p>
+                            <p>E-commerce website untuk toko bunga dengan fitur custom arrangement dan pengiriman same
+                                day.</p>
                             <span class="portfolio-tag">Florist</span>
                             <span class="portfolio-tag">Delivery</span>
                         </div>
@@ -965,13 +1063,16 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title" data-aos="fade-up">Testimoni Klien</h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Apa kata mereka yang telah bergabung dengan Growesia</p>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Apa kata mereka yang telah bergabung
+                    dengan Growesia</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="testimonial-card">
                         <i class="bi bi-quote quote-icon"></i>
-                        <p class="testimonial-text">"Growesia benar-benar mengubah bisnis saya! Sejak punya website, pesanan online meningkat 300% dalam 3 bulan. Tim mereka sangat profesional dan responsif."</p>
+                        <p class="testimonial-text">"Growesia benar-benar mengubah bisnis saya! Sejak punya website,
+                            pesanan online meningkat 300% dalam 3 bulan. Tim mereka sangat profesional dan responsif."
+                        </p>
                         <div class="testimonial-author">
                             <div class="author-avatar">BW</div>
                             <div class="author-info">
@@ -984,7 +1085,9 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-card">
                         <i class="bi bi-quote quote-icon"></i>
-                        <p class="testimonial-text">"Website yang dibuat Growesia sangat membantu usaha batik saya go digital. Desainnya elegan dan mudah digunakan. Pelanggan dari luar kota jadi bisa belanja online!"</p>
+                        <p class="testimonial-text">"Website yang dibuat Growesia sangat membantu usaha batik saya go
+                            digital. Desainnya elegan dan mudah digunakan. Pelanggan dari luar kota jadi bisa belanja
+                            online!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">SP</div>
                             <div class="author-info">
@@ -997,7 +1100,9 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-card">
                         <i class="bi bi-quote quote-icon"></i>
-                        <p class="testimonial-text">"Harga terjangkau dengan kualitas premium! Growesia membantu saya dari nol sampai punya website lengkap dengan sistem pembayaran. Sangat recommended untuk sesama UMKM!"</p>
+                        <p class="testimonial-text">"Harga terjangkau dengan kualitas premium! Growesia membantu saya
+                            dari nol sampai punya website lengkap dengan sistem pembayaran. Sangat recommended untuk
+                            sesama UMKM!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">AR</div>
                             <div class="author-info">
@@ -1027,7 +1132,8 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title" data-aos="fade-up">Dapatkan Tips & Update Terbaru</h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Berlangganan newsletter kami untuk mendapatkan informasi seputar digital marketing dan tips mengembangkan UMKM</p>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Berlangganan newsletter kami untuk
+                    mendapatkan informasi seputar digital marketing dan tips mengembangkan UMKM</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
                 <form class="newsletter-form" onsubmit="handleNewsletter(event)">
@@ -1044,7 +1150,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                     <div class="footer-logo">Growesia</div>
-                    <p class="footer-description">Platform digital terpercaya yang membantu UMKM lokal Indonesia memiliki website profesional untuk mengembangkan bisnis di era digital.</p>
+                    <p class="footer-description">Platform digital terpercaya yang membantu UMKM lokal Indonesia
+                        memiliki website profesional untuk mengembangkan bisnis di era digital.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
@@ -1082,17 +1189,18 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Growesia. All Rights Reserved. Designed with <i class="bi bi-heart-fill" style="color: var(--secondary-tosca);"></i> for Indonesian UMKM</p>
+                <p>&copy; 2025 Growesia. All Rights Reserved. Designed with <i class="bi bi-heart-fill"
+                        style="color: var(--secondary-tosca);"></i> for Indonesian UMKM</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script>
         // Initialize AOS Animation
@@ -1103,7 +1211,7 @@
         });
 
         // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar-custom');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -1112,61 +1220,81 @@
             }
         });
 
-        // Typewriter Effect
+        // Typewriter Effect yang smooth dan nonstop
         const text = "Growesia";
         let index = 0;
         let isDeleting = false;
-        
+        let typeSpeed = 120; // Kecepatan normal
+        let deleteSpeed = 60; // Lebih cepat saat delete
+        let pauseTime = 800; // Jeda antara siklus
+
         function typeWriter() {
             const typewriterElement = document.getElementById('typewriter');
-            
+
             if (!isDeleting && index <= text.length) {
+                // Efek mengetik - smooth acceleration
                 typewriterElement.textContent = text.substring(0, index);
                 index++;
-                setTimeout(typeWriter, 150);
+
+                // Variasi kecepatan untuk efek natural
+                const speedVariation = Math.random() * 40 + typeSpeed;
+                const currentSpeed = index > text.length - 2 ? speedVariation * 1.3 : speedVariation;
+
+                setTimeout(typeWriter, currentSpeed);
+
             } else if (isDeleting && index >= 0) {
+                // Efek menghapus - smooth deceleration
                 typewriterElement.textContent = text.substring(0, index);
                 index--;
-                setTimeout(typeWriter, 100);
-            }
-            
-            if (index === text.length + 1) {
-                setTimeout(() => {
-                    isDeleting = true;
-                    typeWriter();
-                }, 2000);
-            }
-            
-            if (isDeleting && index === 0) {
+
+                // Lebih cepat di awal delete, lebih lambat di akhir
+                const speedVariation = Math.random() * 30 + deleteSpeed;
+                const currentSpeed = index < 3 ? speedVariation * 0.8 : speedVariation;
+
+                setTimeout(typeWriter, currentSpeed);
+
+            } else if (index === text.length + 1) {
+                // Transition dari mengetik ke menghapus
+                isDeleting = true;
+                setTimeout(typeWriter, pauseTime);
+
+            } else if (isDeleting && index === -1) {
+                // Transition dari menghapus ke mengetik
                 isDeleting = false;
-                setTimeout(typeWriter, 500);
+                index = 0;
+                setTimeout(typeWriter, pauseTime / 2);
             }
         }
-        
+
         // Start typewriter effect on page load
         window.addEventListener('load', typeWriter);
 
-        // Counter Animation for Statistics
+        // Counter Animation yang super smooth
         function animateCounter() {
             const counters = document.querySelectorAll('.stat-number');
-            const speed = 200;
-            
+
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'));
-                let count = 0;
-                const increment = target / speed;
-                
-                const updateCount = () => {
-                    count += increment;
-                    if (count < target) {
-                        counter.textContent = Math.ceil(count);
-                        setTimeout(updateCount, 10);
+                let startTime = null;
+
+                function updateCounter(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / 1800, 1); // 1.8 detik
+
+                    // Ease Out Quart - sangat smooth
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+
+                    const currentValue = Math.floor(easeProgress * target);
+                    counter.textContent = currentValue + (target === 98 ? '%' : '+');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
                     } else {
                         counter.textContent = target + (target === 98 ? '%' : '+');
                     }
-                };
-                
-                updateCount();
+                }
+
+                requestAnimationFrame(updateCounter);
             });
         }
 
@@ -1210,7 +1338,23 @@
                 }
             });
         });
+
+        // Set active nav link based on current page
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
     </script>
 
 </body>
+
 </html>
