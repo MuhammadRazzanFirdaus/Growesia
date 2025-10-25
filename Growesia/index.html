@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growesia - Platform Website UMKM Indonesia</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0d6093;
+            --secondary-tosca: #33b9bc;
+            --white: #fcfcfc;
+            --black: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+/* ===== NAVBAR STYLES ===== */
+.navbar-custom {
+    background: rgba(13, 96, 147, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 8px 0; /* dikasih sedikit padding biar gak gepeng */
+}
+
+.navbar-custom.scrolled {
+    background: var(--primary-blue);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 5px 0; /* sedikit lebih kecil pas discroll */
+}
+
+/* Container rapih */
+.navbar .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* ===== BRAND (LOGO) ===== */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white) !important;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 60px; /* sedikit lebih tinggi biar proporsional */
+    width: auto;
+    display: block;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    color: var(--secondary-tosca) !important;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-link {
+    color: var(--white) !important;
+    font-weight: 500;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 8px 0; /* tambahin padding biar sejajar sama logo */
+    line-height: 1.5; /* jangan fix height, biar fleksibel */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 4px;
+    left: 50%;
+    background-color: var(--secondary-tosca);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--secondary-tosca) !important;
+}
+
+/* Navbar toggler custom */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    background-color: var(--white);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    background-color: var(--secondary-tosca);
+}
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-tosca) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+        }
+        
+        .typewriter {
+            color: var(--secondary-tosca);
+            border-right: 3px solid var(--secondary-tosca);
+            display: inline-block;
+            animation: blink 0.7s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--secondary-tosca); }
+        }
+        
+        .btn-custom {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--secondary-tosca);
+            color: var(--white);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline-custom {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== SECTION STYLES ===== */
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: var(--secondary-tosca);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ===== ABOUT PREVIEW SECTION ===== */
+        .about-preview {
+            background-color: var(--white);
+        }
+        
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        .services-section {
+            background-color: #f8f9fa;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: 100%;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--secondary-tosca);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: var(--secondary-tosca);
+            transform: rotate(360deg);
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* ===== STATISTICS SECTION ===== */
+        .statistics-section {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--secondary-tosca);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+        
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio-section {
+            background-color: var(--white);
+        }
+        
+        .portfolio-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            background-color: var(--white);
+            height: 100%;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-image {
+            background-color: var(--secondary-tosca);
+            color: var(--white);
+        }
+        
+        .portfolio-info {
+            padding: 25px;
+        }
+        
+        .portfolio-info h4 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--secondary-tosca);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 5px;
+        }
+        
+        /* ===== TESTIMONIAL SECTION ===== */
+        .testimonial-section {
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .quote-icon {
+            font-size: 48px;
+            color: var(--secondary-tosca);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .author-info h5 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background-color: var(--secondary-tosca);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .btn-white-custom {
+            background-color: var(--white);
+            color: var(--secondary-tosca);
+        }
+        
+        .btn-white-custom:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* ===== NEWSLETTER SECTION ===== */
+        .newsletter-section {
+            background-color: var(--white);
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            padding: 18px 160px 18px 25px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--secondary-tosca);
+            box-shadow: 0 5px 20px rgba(51, 185, 188, 0.3);
+        }
+        
+        .newsletter-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 12px 35px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--secondary-tosca);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .footer-description {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .footer-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary-tosca);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary-tosca);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-tosca);
+            transform: translateY(-5px);
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 50px;
+            padding-top: 25px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin: 0;
+        }
+        
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .stat-number {
+                font-size: 42px;
+            }
+            
+            .cta-section h2 {
+                font-size: 32px;
+            }
+            
+            .newsletter-input {
+                padding: 15px 20px;
+                margin-bottom: 15px;
+            }
+            
+            .newsletter-btn {
+                position: static;
+                transform: none;
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="image/logo.png" alt="Growesia Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
+                <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Bangun Website UMKM Bersama <span class="typewriter" id="typewriter">Growesia</span></h1>
+                        <p class="hero-subtitle">Platform digital terpercaya yang membantu UMKM lokal Indonesia memiliki website profesional untuk memperluas jangkauan bisnis dan meningkatkan penjualan online.</p>
+                        <a href="kontak.html" class="btn-custom btn-primary-custom me-3">Mulai Sekarang</a>
+                        <a href="tentang.html" class="btn-custom btn-outline-custom">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                    <div style="text-align: center; font-size: 200px; color: rgba(255,255,255,0.2);">
+                        <i class="bi bi-laptop"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT PREVIEW SECTION ===== -->
+    <section class="about-preview section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="about-image">
+                        <div style="width: 100%; height: 400px; background-color: var(--primary-blue); display: flex; align-items: center; justify-content: center; font-size: 120px; color: var(--white);">
+                            <i class="bi bi-shop-window"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-text">
+                        <h2>Misi Kami Membantu UMKM Indonesia</h2>
+                        <p>Growesia hadir sebagai solusi digital yang memudahkan UMKM lokal Indonesia untuk memiliki website profesional tanpa perlu keahlian teknis yang rumit.</p>
+                        <p>Kami percaya bahwa setiap usaha kecil dan menengah memiliki potensi besar untuk berkembang di era digital. Dengan website yang tepat, UMKM dapat menjangkau lebih banyak pelanggan, meningkatkan kredibilitas, dan mengembangkan bisnis secara signifikan.</p>
+                        <p>Tim kami berdedikasi untuk memberikan layanan terbaik, dari desain website yang menarik hingga optimasi SEO yang membantu bisnis Anda ditemukan oleh lebih banyak calon pelanggan.</p>
+                        <a href="tentang.html" class="btn-custom btn-primary-custom mt-3">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Layanan Unggulan</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Solusi lengkap untuk transformasi digital UMKM Anda</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h3>Website UMKM</h3>
+                        <p>Pembuatan website profesional dan responsif yang dirancang khusus untuk kebutuhan UMKM. Tampilan modern, mudah dikelola, dan optimal di semua perangkat.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h3>Branding Digital</h3>
+                        <p>Membangun identitas brand yang kuat dengan desain logo, pemilihan warna, dan strategi branding yang tepat untuk meningkatkan recognition bisnis Anda.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3>SEO & Optimasi</h3>
+                        <p>Optimasi mesin pencari agar website UMKM Anda mudah ditemukan di Google. Tingkatkan visibilitas online dan raih lebih banyak pelanggan potensial.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-cart-check"></i>
+                        </div>
+                        <h3>E-Commerce Solution</h3>
+                        <p>Bangun toko online yang mudah digunakan dengan fitur pembayaran terintegrasi, manajemen produk, dan sistem checkout yang aman.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3>Mobile Optimization</h3>
+                        <p>Pastikan website UMKM Anda tampil sempurna di semua perangkat mobile. Pengalaman pengguna yang optimal meningkatkan konversi penjualan.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h3>Support & Maintenance</h3>
+                        <p>Dukungan teknis 24/7 dan maintenance berkala untuk memastikan website Anda selalu berjalan dengan optimal dan aman dari gangguan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATISTICS SECTION ===== -->
+    <section class="statistics-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 style="font-size: 42px; font-weight: 700; margin-bottom: 15px;">Dampak Growesia untuk UMKM</h2>
+                <p style="font-size: 18px; opacity: 0.9;">Kepercayaan ratusan UMKM Indonesia adalah motivasi kami</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="350">0</span>
+                        <div class="stat-label">UMKM Terbantu</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="420">0</span>
+                        <div class="stat-label">Website Dibuat</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="25">0</span>
+                        <div class="stat-label">Kota di Indonesia</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="98">0</span>
+                        <div class="stat-label">Tingkat Kepuasan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO PREVIEW SECTION ===== -->
+    <section class="portfolio-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Portofolio Kami</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Beberapa karya website UMKM yang telah kami ciptakan</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Kedai Kopi Nusantara</h4>
+                            <p>Website e-commerce untuk kedai kopi lokal dengan sistem pemesanan online dan katalog produk lengkap.</p>
+                            <span class="portfolio-tag">E-Commerce</span>
+                            <span class="portfolio-tag">F&B</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-bag-heart"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Batik Klasik Indonesia</h4>
+                            <p>Platform penjualan batik tradisional dengan galeri produk interaktif dan sistem pembayaran terintegrasi.</p>
+                            <span class="portfolio-tag">Fashion</span>
+                            <span class="portfolio-tag">Marketplace</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-emoji-smile"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Jajanan Pasar Modern</h4>
+                            <p>Website company profile dengan katalog jajanan tradisional dan sistem pre-order untuk acara dan catering.</p>
+                            <span class="portfolio-tag">Culinary</span>
+                            <span class="portfolio-tag">Catering</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-flower1"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Toko Bunga Segar</h4>
+                            <p>E-commerce website untuk toko bunga dengan fitur custom arrangement dan pengiriman same day.</p>
+                            <span class="portfolio-tag">Florist</span>
+                            <span class="portfolio-tag">Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="portofolio.html" class="btn-custom btn-primary-custom">Lihat Semua Portofolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL SECTION ===== -->
+    <section class="testimonial-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Testimoni Klien</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Apa kata mereka yang telah bergabung dengan Growesia</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="testimonial-text">"Growesia benar-benar mengubah bisnis saya! Sejak punya website, pesanan online meningkat 300% dalam 3 bulan. Tim mereka sangat profesional dan responsif."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">BW</div>
+                            <div class="author-info">
+                                <h5>Budi Wicaksono</h5>
+                                <p>Pemilik Kedai Kopi Nusantara</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="testimonial-text">"Website yang dibuat Growesia sangat membantu usaha batik saya go digital. Desainnya elegan dan mudah digunakan. Pelanggan dari luar kota jadi bisa belanja online!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SP</div>
+                            <div class="author-info">
+                                <h5>Siti Pratiwi</h5>
+                                <p>Owner Batik Klasik Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <i class="bi bi-quote quote-icon"></i>
+                        <p class="testimonial-text">"Harga terjangkau dengan kualitas premium! Growesia membantu saya dari nol sampai punya website lengkap dengan sistem pembayaran. Sangat recommended untuk sesama UMKM!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AR</div>
+                            <div class="author-info">
+                                <h5>Ahmad Rizki</h5>
+                                <p>Founder Jajanan Pasar Modern</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div data-aos="zoom-in">
+                <h2>Saatnya UMKM Lokal Naik Kelas</h2>
+                <p>Bergabunglah dengan ratusan UMKM yang telah bertransformasi digital bersama Growesia</p>
+                <a href="kontak.html" class="btn-custom btn-white-custom">Hubungi Kami Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER SECTION ===== -->
+    <section class="newsletter-section section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Dapatkan Tips & Update Terbaru</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Berlangganan newsletter kami untuk mendapatkan informasi seputar digital marketing dan tips mengembangkan UMKM</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" class="newsletter-input" placeholder="Masukkan email Anda..." required>
+                    <button type="submit" class="newsletter-btn">Berlangganan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-logo">Growesia</div>
+                    <p class="footer-description">Platform digital terpercaya yang membantu UMKM lokal Indonesia memiliki website profesional untuk mengembangkan bisnis di era digital.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Menu Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="layanan.html">Layanan</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="layanan.html#website">Website UMKM</a></li>
+                        <li><a href="layanan.html#branding">Branding Digital</a></li>
+                        <li><a href="layanan.html#seo">SEO & Optimasi</a></li>
+                        <li><a href="layanan.html#ecommerce">E-Commerce</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Kontak</h4>
+                    <ul class="footer-links">
+                        <li><i class="bi bi-geo-alt me-2"></i>Jakarta, Indonesia</li>
+                        <li><i class="bi bi-envelope me-2"></i>info@growesia.com</li>
+                        <li><i class="bi bi-telephone me-2"></i>+62 812 3456 7890</li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Growesia. All Rights Reserved. Designed with <i class="bi bi-heart-fill" style="color: var(--secondary-tosca);"></i> for Indonesian UMKM</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Typewriter Effect
+        const text = "Growesia";
+        let index = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const typewriterElement = document.getElementById('typewriter');
+            
+            if (!isDeleting && index <= text.length) {
+                typewriterElement.textContent = text.substring(0, index);
+                index++;
+                setTimeout(typeWriter, 150);
+            } else if (isDeleting && index >= 0) {
+                typewriterElement.textContent = text.substring(0, index);
+                index--;
+                setTimeout(typeWriter, 100);
+            }
+            
+            if (index === text.length + 1) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeWriter();
+                }, 2000);
+            }
+            
+            if (isDeleting && index === 0) {
+                isDeleting = false;
+                setTimeout(typeWriter, 500);
+            }
+        }
+        
+        // Start typewriter effect on page load
+        window.addEventListener('load', typeWriter);
+
+        // Counter Animation for Statistics
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let count = 0;
+                const increment = target / speed;
+                
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.textContent = Math.ceil(count);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.textContent = target + (target === 98 ? '%' : '+');
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+
+        // Trigger counter animation when statistics section is in view
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.statistics-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Newsletter Form Handler
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Terima kasih telah berlangganan! Kami akan mengirimkan update ke: ' + email);
+            event.target.reset();
+        }
+
+        // Smooth scroll for anchor links (if any added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

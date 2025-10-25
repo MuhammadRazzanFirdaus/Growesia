@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Growesia</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0d6093;
+            --secondary-tosca: #33b9bc;
+            --white: #fcfcfc;
+            --black: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+       /* ===== NAVBAR STYLES ===== */
+.navbar-custom {
+    background: rgba(13, 96, 147, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 8px 0; /* dikasih sedikit padding biar gak gepeng */
+}
+
+.navbar-custom.scrolled {
+    background: var(--primary-blue);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 5px 0; /* sedikit lebih kecil pas discroll */
+}
+
+/* Container rapih */
+.navbar .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* ===== BRAND (LOGO) ===== */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white) !important;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 60px; /* sedikit lebih tinggi biar proporsional */
+    width: auto;
+    display: block;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    color: var(--secondary-tosca) !important;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-link {
+    color: var(--white) !important;
+    font-weight: 500;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 8px 0; /* tambahin padding biar sejajar sama logo */
+    line-height: 1.5; /* jangan fix height, biar fleksibel */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 4px;
+    left: 50%;
+    background-color: var(--secondary-tosca);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--secondary-tosca) !important;
+}
+
+/* Navbar toggler custom */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    background-color: var(--white);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    background-color: var(--secondary-tosca);
+}
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-tosca) 100%);
+            padding: 150px 0 100px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* ===== FILTER SECTION ===== */
+        .filter-section {
+            padding: 60px 0 40px;
+            background-color: var(--white);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            padding: 12px 30px;
+            background-color: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        /* ===== PORTFOLIO GRID ===== */
+        .portfolio-section {
+            padding: 40px 0 100px;
+            background-color: var(--white);
+        }
+        
+        .portfolio-item {
+            margin-bottom: 40px;
+        }
+        
+        .portfolio-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            background-color: var(--white);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 300px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-card:hover .portfolio-image {
+            background-color: var(--secondary-tosca);
+            color: var(--white);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 96, 147, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay-content {
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .portfolio-overlay-content i {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-overlay-content p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .portfolio-info {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-category {
+            font-size: 14px;
+            color: var(--secondary-tosca);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .portfolio-info p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: #f0f0f0;
+            color: var(--primary-blue);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background-color: var(--secondary-tosca);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .btn-custom {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-white-custom {
+            background-color: var(--white);
+            color: var(--secondary-tosca);
+        }
+        
+        .btn-white-custom:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .footer-description {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .footer-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary-tosca);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary-tosca);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-tosca);
+            transform: translateY(-5px);
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 50px;
+            padding-top: 25px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 14px;
+            opacity: 0.7;
+            margin: 0;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .portfolio-image {
+                height: 250px;
+                font-size: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="image/logo.png" alt="Growesia Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="layanan.html">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
+                <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-down">Portofolio Kami</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Karya Website UMKM yang Telah Kami Ciptakan</p>
+        </div>
+    </section>
+
+    <!-- ===== FILTER SECTION ===== -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                <button class="filter-btn" data-filter="company">Company Profile</button>
+                <button class="filter-btn" data-filter="culinary">Kuliner</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+                <button class="filter-btn" data-filter="service">Jasa</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO GRID ===== -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="row" id="portfolioGrid">
+                
+                <!-- Portfolio Item 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="culinary ecommerce" data-aos="fade-up">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-cup-hot"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Kuliner • E-Commerce</div>
+                            <h3>Kedai Kopi Nusantara</h3>
+                            <p>Platform e-commerce lengkap dengan sistem pemesanan online, katalog produk kopi, dan integrasi pembayaran digital untuk kedai kopi lokal.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">E-Commerce</span>
+                                <span class="portfolio-tag">Payment Gateway</span>
+                                <span class="portfolio-tag">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="fashion ecommerce" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-bag-heart"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Fashion • E-Commerce</div>
+                            <h3>Batik Klasik Indonesia</h3>
+                            <p>Website marketplace batik tradisional dengan galeri produk interaktif, filter pencarian advanced, dan sistem pre-order untuk produk custom.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Marketplace</span>
+                                <span class="portfolio-tag">Product Gallery</span>
+                                <span class="portfolio-tag">Custom Order</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="culinary company" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-emoji-smile"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Kuliner • Company Profile</div>
+                            <h3>Jajanan Pasar Modern</h3>
+                            <p>Company profile website dengan katalog jajanan tradisional lengkap, sistem pre-order untuk catering acara, dan integrasi WhatsApp Business.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Catering</span>
+                                <span class="portfolio-tag">Pre-Order</span>
+                                <span class="portfolio-tag">WhatsApp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="service ecommerce" data-aos="fade-up">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-flower1"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Jasa • E-Commerce</div>
+                            <h3>Toko Bunga Segar</h3>
+                            <p>E-commerce untuk toko bunga dengan fitur custom flower arrangement, calendar booking untuk pengiriman, dan tracking pengiriman real-time.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Florist</span>
+                                <span class="portfolio-tag">Booking System</span>
+                                <span class="portfolio-tag">Delivery Tracking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="fashion company" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-scissors"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Fashion • Company Profile</div>
+                            <h3>Konveksi Berkah Mandiri</h3>
+                            <p>Website company profile untuk usaha konveksi dengan showcase produk, portfolio klien, dan form request quotation yang terintegrasi.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Portfolio</span>
+                                <span class="portfolio-tag">Quotation Form</span>
+                                <span class="portfolio-tag">B2B</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="culinary ecommerce" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-cart4"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Kuliner • E-Commerce</div>
+                            <h3>Toko Roti Mama</h3>
+                            <p>Platform penjualan online untuk toko roti dan kue dengan sistem pre-order, pilihan delivery atau pickup, dan program membership.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Pre-Order</span>
+                                <span class="portfolio-tag">Membership</span>
+                                <span class="portfolio-tag">Multi-Payment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 7 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="service company" data-aos="fade-up">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-wrench"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Jasa • Company Profile</div>
+                            <h3>Bengkel Motor Jaya</h3>
+                            <p>Website company profile untuk bengkel motor dengan sistem booking service online, katalog spare part, dan tips perawatan kendaraan.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Booking</span>
+                                <span class="portfolio-tag">Service</span>
+                                <span class="portfolio-tag">Blog</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 8 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="fashion ecommerce" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-handbag"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Fashion • E-Commerce</div>
+                            <h3>Tas Kulit Handmade</h3>
+                            <p>Online shop untuk produk tas kulit handmade dengan galeri 360 derajat, custom design service, dan testimoni customer terintegrasi.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Handmade</span>
+                                <span class="portfolio-tag">360° View</span>
+                                <span class="portfolio-tag">Custom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 9 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="service company" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <i class="bi bi-paint-bucket"></i>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <i class="bi bi-eye"></i>
+                                    <p>Lihat Detail</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Jasa • Company Profile</div>
+                            <h3>Jasa Cat Rumah Pro</h3>
+                            <p>Website jasa pengecatan dengan portfolio project, kalkulator estimasi biaya, booking jadwal survey, dan galeri before-after.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Calculator</span>
+                                <span class="portfolio-tag">Portfolio</span>
+                                <span class="portfolio-tag">Booking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Siap Memiliki Website Seperti Ini?</h2>
+            <p>Hubungi kami sekarang untuk konsultasi gratis dan wujudkan website impian untuk bisnis Anda</p>
+            <a href="kontak.html" class="btn-custom btn-white-custom">Mulai Project Anda</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-logo">Growesia</div>
+                    <p class="footer-description">Platform digital terpercaya yang membantu UMKM lokal Indonesia memiliki website profesional untuk mengembangkan bisnis di era digital.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Menu Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="layanan.html">Layanan</a></li>
+                        <li><a href="portofolio.html">Portofolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="layanan.html#website">Website UMKM</a></li>
+                        <li><a href="layanan.html#branding">Branding Digital</a></li>
+                        <li><a href="layanan.html#seo">SEO & Optimasi</a></li>
+                        <li><a href="layanan.html#ecommerce">E-Commerce</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Kontak</h4>
+                    <ul class="footer-links">
+                        <li><i class="bi bi-geo-alt me-2"></i>Jakarta, Indonesia</li>
+                        <li><i class="bi bi-envelope me-2"></i>info@growesia.com</li>
+                        <li><i class="bi bi-telephone me-2"></i>+62 812 3456 7890</li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Growesia. All Rights Reserved. Designed with <i class="bi bi-heart-fill" style="color: var(--secondary-tosca);"></i> for Indonesian UMKM</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        const categories = item.getAttribute('data-category');
+                        if (categories.includes(filterValue)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
